@@ -1,0 +1,69 @@
+{
+  "network": "preprod",
+  "cardano": {
+    "networkId": 0,
+    "testnetMagic": 1,
+    "protocolMagic": 1,
+    "nodeSocketPath": "/opt/cardano/cnode/sockets/node.socket",
+    "blockfrost": {
+      "url": "https://cardano-preprod.blockfrost.io/api/v0",
+      "projectId": "your_blockfrost_preprod_project_id"
+    },
+    "explorer": "https://preprod.cardanoscan.io",
+    "faucet": "https://docs.cardano.org/cardano-testnet/tools/faucet"
+  },
+  "ethereum": {
+    "chainId": 11155111,
+    "name": "sepolia",
+    "rpcUrl": "https://eth-sepolia.g.alchemy.com/v2/YOUR_API_KEY",
+    "explorer": "https://sepolia.etherscan.io",
+    "faucet": "https://sepoliafaucet.com",
+    "oneinch": {
+      "routerV5": "0x111111125421cA6dc452d289314280a0f8842A65",
+      "orderMixin": "0x111111125421cA6dc452d289314280a0f8842A65",
+      "apiUrl": "https://api.1inch.io/v5.0/11155111",
+      "aggregationExecutor": "0x111111125421cA6dc452d289314280a0f8842A65"
+    }
+  },
+  "atomicSwap": {
+    "defaultDeadline": 3600,
+    "minDeadline": 600,
+    "maxDeadline": 86400,
+    "secretLength": 32,
+    "hashAlgorithm": "keccak256",
+    "mevProtection": {
+      "maxSlippageBps": 50,
+      "minGasPriceGwei": 10,
+      "maxGasPriceGwei": 100,
+      "deadlineBufferSeconds": 300
+    }
+  },
+  "demeter": {
+    "workspace": "preprod",
+    "extensions": [
+      "cardano-node",
+      "blockfrost-api",
+      "aiken-language-server"
+    ],
+    "environment": {
+      "CARDANO_NETWORK": "preprod",
+      "CARDANO_CLI_NETWORK": "--testnet-magic 1"
+    }
+  },
+  "security": {
+    "requireSignatures": true,
+    "enableMevProtection": true,
+    "maxSwapAmount": "10000000000",
+    "minSwapAmount": "1000000",
+    "blacklistedAddresses": []
+  },
+  "monitoring": {
+    "enableLogging": true,
+    "logLevel": "info",
+    "webhooks": {
+      "swapCreated": "",
+      "swapCompleted": "",
+      "swapFailed": ""
+    }
+  }
+}

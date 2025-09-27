@@ -1,0 +1,77 @@
+{
+  "network": "mainnet",
+  "cardano": {
+    "networkId": 1,
+    "testnetMagic": null,
+    "protocolMagic": 764824073,
+    "nodeSocketPath": "/opt/cardano/cnode/sockets/node.socket",
+    "blockfrost": {
+      "url": "https://cardano-mainnet.blockfrost.io/api/v0",
+      "projectId": "your_blockfrost_mainnet_project_id"
+    },
+    "explorer": "https://cardanoscan.io",
+    "faucet": null
+  },
+  "ethereum": {
+    "chainId": 1,
+    "name": "mainnet",
+    "rpcUrl": "https://eth-mainnet.g.alchemy.com/v2/YOUR_API_KEY",
+    "explorer": "https://etherscan.io",
+    "faucet": null,
+    "oneinch": {
+      "routerV5": "0x111111125421cA6dc452d289314280a0f8842A65",
+      "orderMixin": "0x111111125421cA6dc452d289314280a0f8842A65",
+      "apiUrl": "https://api.1inch.io/v5.0/1",
+      "aggregationExecutor": "0x111111125421cA6dc452d289314280a0f8842A65"
+    }
+  },
+  "atomicSwap": {
+    "defaultDeadline": 3600,
+    "minDeadline": 1800,
+    "maxDeadline": 86400,
+    "secretLength": 32,
+    "hashAlgorithm": "keccak256",
+    "mevProtection": {
+      "maxSlippageBps": 30,
+      "minGasPriceGwei": 15,
+      "maxGasPriceGwei": 200,
+      "deadlineBufferSeconds": 600
+    }
+  },
+  "demeter": {
+    "workspace": "mainnet",
+    "extensions": [
+      "cardano-node",
+      "blockfrost-api",
+      "aiken-language-server"
+    ],
+    "environment": {
+      "CARDANO_NETWORK": "mainnet",
+      "CARDANO_CLI_NETWORK": "--mainnet"
+    }
+  },
+  "security": {
+    "requireSignatures": true,
+    "enableMevProtection": true,
+    "maxSwapAmount": "100000000000",
+    "minSwapAmount": "5000000",
+    "blacklistedAddresses": []
+  },
+  "monitoring": {
+    "enableLogging": true,
+    "logLevel": "warn",
+    "webhooks": {
+      "swapCreated": "",
+      "swapCompleted": "",
+      "swapFailed": ""
+    },
+    "alerting": {
+      "enabled": true,
+      "thresholds": {
+        "largeSwapAda": "50000000000",
+        "largeSwapEth": "10000000000000000000",
+        "suspiciousActivity": true
+      }
+    }
+  }
+}
